@@ -19,6 +19,7 @@ play = True
 
 while play == True:
     grid = []
+    
 #Pick a random item from symbols and append it
     for i in range(3):
         row = []
@@ -26,16 +27,21 @@ while play == True:
             row.append(random.choice(symbols))
 
         grid.append(row)
- 
-# Print out 3 symbols in a row
+ # Print out 3 symbols in a row
     for row in grid:
         print(row)
 
-# Check if symbols match
-    if row[0] == row[1] and row[1] == row[2]:
-        print("You won!")
+# Check rows middle, top then bottom
+    if grid[1][0] == grid[1][1] and grid[1][2] == grid[1][0] and grid[1][1] == grid[1][2]:
+        print("YOU HAVE WON ROW 1!")
 
-
+    if grid[0][0] == grid[0][1] and grid[0][2] == grid[0][0] and grid[0][1] == grid[0][2]:
+        print("YOU HAVE WON ROW 2!")
+          
+    if grid[2][0] == grid[2][1] and grid[2][2] == grid[2][0] and grid[2][1] == grid[2][2]:
+        print("YOU HAVE WON ROW 3!")
+     
+   
 # Ask user input if they want to spin again
     spin_again = input("Would you like to spin again? y or n ".lower())
 
