@@ -8,23 +8,22 @@ import random
 
 # Make a 2D list with symbols for machine
 symbols = ["🍒", "🎰", "$", "111", "333", "777"]
-row = []
+grid = []
 
-
-def generate_grid(row):
+def generate_grid():
     for i in range(3):
-        row = []
+        current_row = []
         for j in range(3):
-            row.append(random.choice(symbols))
+            symbol = random.choice(symbols)
+            current_row.append(symbol)
+        grid.append(current_row)
+    return grid
 
-        grid.append(row)
-        return row
-
-
-def display_grid(row):
-    print(row)
-
-
+        
+def display_grid(grid):
+    for row in grid:
+        print(f" | {' | '.join(row)} | ")
+        
 def check_wins(grid):
     if grid[1][0] == grid[1][1] and grid[1][2] == grid[1][0] and grid[1][1] == grid[1][2]:
         print("YOU HAVE WON ROW 1!")
@@ -34,4 +33,8 @@ def check_wins(grid):
         print("YOU HAVE WON ROW 3!")
 
 
-generate_grid(row)
+# main routine
+
+generate_grid()
+display_grid(grid)
+check_wins(grid)
